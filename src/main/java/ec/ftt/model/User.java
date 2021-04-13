@@ -2,8 +2,14 @@ package ec.ftt.model;
 
 import java.util.Objects;
 
-//JavaBean
-//POJO
+//JavaBean >> Serializable, Geters Seters, default contructor, [toString, equals, hash]
+//POJO - Plain Old Java Objects
+
+//https://www.devmedia.com.br/use-a-serializacao-em-java-com-seguranca/29012
+//https://sites.google.com/site/sureshdevang/java-bean-v-s-pojo
+//https://pt.wikipedia.org/wiki/Plain_Old_Java_Objects
+//https://pt.wikipedia.org/wiki/JavaBeans
+
 
 public class User {
 
