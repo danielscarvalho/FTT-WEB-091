@@ -34,7 +34,7 @@ public class DBUtil {
                 String driver = "com.mysql.jdbc.Driver";
                 String url = "jdbc:mysql://127.0.0.1:3306";
                 String user = "scott";
-                String password = "@@T1ger!"; //"UFLg@9!wytje8NjR";
+                String password = "@@T1ger!"; //"UFLg@9!wytje8NjR"; System.getenv("FTT_PWD");
                 
                 Class.forName(driver);
                 

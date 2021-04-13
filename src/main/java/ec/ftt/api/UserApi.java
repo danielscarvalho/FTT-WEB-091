@@ -51,7 +51,10 @@ public class UserApi extends HttpServlet {
 		
 		UserDao userDao = new UserDao();
 		
-		response.getWriter().append("DB Served date: ").append(userDao.getDbDate());
+		//response.getWriter().append("DB Served date: ").append(userDao.getDbDate()).append(" - ").append(System.getenv("PATH"));
+		response.getWriter().append("FTT_PWD - ").append(System.getenv("FTT_PWD"));
+		
+		
 	}
 
 	/**
