@@ -90,7 +90,26 @@ public class UserApi extends HttpServlet {
 	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
 	 */
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// https://www.tutorialspoint.com/servlets/servlets-http-status-codes.htm
+		
+		// TODO Verificar se está enviando o parametro
+		// TODO Verificar se o parametro é null
+		// TODO Se o ID já foi apagado
+		// TODO Verificar se o ID não existe...
+		
+		if (request.getParameter("user-id") == null)
+			 response.sendError(407, "Informe o ID do usuário a ser retornado!!!" );
+		else {
+		Long userId = Long.valueOf(request.getParameter("user-id"));
+		
+		
+		
+		UserDao ud = new UserDao();
+		
+		ud.deleteUser(userId);
+		
+		response.getWriter().append(request.getParameter("user-id") + " User removido");
+		}
 	}
 
 }

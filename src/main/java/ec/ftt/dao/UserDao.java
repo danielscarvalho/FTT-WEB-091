@@ -21,6 +21,9 @@ public class UserDao {
     public void addUser(User user) {
         
     	try {
+    		
+    		System.out.println("Here we are...");
+    		
             PreparedStatement preparedStatement = connection
                     .prepareStatement("INSERT INTO ftt.USER (NAME, EMAIL, COLOR) VALUES (?, ?, ?)");
             
@@ -51,7 +54,14 @@ public class UserDao {
         try {
             
         	PreparedStatement preparedStatement = connection
-                    .prepareStatement("DELETE FROM USER WHERE ID=?");
+                    .prepareStatement("DELETE FROM ftt.USER WHERE ID=?");
+        	
+        	/*
+        	 * 
+        	 * DELETE FROM `ftt`.`USER` WHERE <{where_expression}>;
+
+        	 * 
+        	 */
             
             // Parameters start with 1
             preparedStatement.setLong(1, user.getId());
@@ -69,6 +79,19 @@ public class UserDao {
                     		                          + "EMAIL=?, " 
                     		                          + "COLOR=? " 
                                                + "WHERE ID=?");
+            
+            /*
+             * 
+             * UPDATE `ftt`.`USER`
+				SET
+					`ID` = <{ID: }>,
+					`NAME` = <{NAME: }>,
+					`EMAIL` = <{EMAIL: }>,
+					`COLOR` = <{COLOR: }>
+					WHERE `ID` = <{expr}>;
+
+             * 
+             */
             
             // Parameters start with 1
             preparedStatement.setString(1, user.getName());
