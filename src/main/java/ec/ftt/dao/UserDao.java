@@ -22,7 +22,7 @@ public class UserDao {
         
     	try {
             PreparedStatement preparedStatement = connection
-                    .prepareStatement("INSERT INTO ftt.user (NAME, EMAIL, COLOR) VALUES (?, ?, ?)");
+                    .prepareStatement("INSERT INTO ftt.USER (NAME, EMAIL, COLOR) VALUES (?, ?, ?)");
             
             // Parameters start with 1
             preparedStatement.setString(1, user.getName());
