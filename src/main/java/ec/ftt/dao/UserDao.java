@@ -20,6 +20,8 @@ public class UserDao {
 
     public void addUser(User user) {
         
+    	//https://www.devmedia.com.br/assertions-em-java/28781
+    	
     	try {
     		
     		System.out.println("Here we are...");
