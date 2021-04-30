@@ -77,7 +77,7 @@ public class UserDao {
     public void updateUser(User user) {
         try {
             PreparedStatement preparedStatement = connection
-                    .prepareStatement("UPDATE USER SET NAME=?, " 
+                    .prepareStatement("UPDATE ftt.USER SET NAME=?, " 
                     		                          + "EMAIL=?, " 
                     		                          + "COLOR=? " 
                                                + "WHERE ID=?");
@@ -116,7 +116,7 @@ public class UserDao {
         
         try {
             Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * FROM USER");
+            ResultSet rs = statement.executeQuery("SELECT * FROM ftt.USER");
             while (rs.next()) {
                 
             	User user = new User();
@@ -153,7 +153,7 @@ public class UserDao {
         
     	try {
             PreparedStatement preparedStatement = connection.
-                    prepareStatement("SELECT * from USER WHERE ID=?");
+                    prepareStatement("SELECT * from ftt.USER WHERE ID=?");
             
             preparedStatement.setLong(1, user.getId());
             ResultSet rs = preparedStatement.executeQuery();
