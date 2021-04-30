@@ -60,7 +60,8 @@ public class UserApi extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		response.setStatus(418); //200 - OK - Padrão (Default)
+
 		String userId = request.getParameter("user-id");
 		
 	    if(userId != null) {
@@ -118,14 +119,13 @@ public class UserApi extends HttpServlet {
 	 */
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Ajustar errors com try catch
-		
+		response.setContentType("application/json"); //mimeType - https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
 		User u = new User(
 				request.getParameter("user-id"),
 				request.getParameter("user-name"),
 				request.getParameter("user-email"),
 				request.getParameter("user-color")
 				);
-		
 		UserDao userDao = new UserDao();
 		
 		userDao.updateUser(u);
@@ -151,6 +151,12 @@ public class UserApi extends HttpServlet {
 		// TODO क्या आप इस कोड को अपने जीवन की महिला को दिखाने की हिम्मत करेंगे ???
 		// TODO మీ జీవితంలోని స్త్రీకి ఈ కోడ్ చూపించడానికి మీకు ధైర్యం ఉందా ???
 		
+		
+		// Reference: https://www.tutorialspoint.com/servlets/servlets-http-status-codes.htm
+		// 
+		
+		response.setStatus(418); //200 - OK - Padrão (Default)
+
 		if (request.getParameter("user-id") == null)
 			 response.sendError(407, "Informe o ID do usuário a ser retornado!!!" );
 		else {
